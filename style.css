@@ -1,0 +1,94 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.material-icons {
+    user-select: none;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+
+    width: fit-content;
+    padding: .5em 2.5em;
+    border: 2px solid black;
+    background-color: transparent;
+
+    font-size: 1.2rem;
+
+    overflow: hidden;
+}
+
+.button:hover {
+    outline: 3px solid black;
+    outline-offset: -1px;
+
+    cursor: pointer;
+}
+
+.button:focus-visible {
+    outline: none;
+    background-color: black;
+    color: white;
+}
+
+.button--animating .button__text {
+    animation: fade 2s linear;
+}
+
+.button--animating .button__icon {
+    animation: move-icon 2s cubic-bezier(.55,.06,.68,.19);
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0;
+    }
+    95% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes move-icon {
+    0% {
+        opacity: 1;
+    }
+    15% {
+        transform: translateX(0);
+    }
+    90% {
+        transform: translateX(15em);
+        opacity: 1;
+    }
+    94% {
+        opacity: 0;
+        transform: translateX(15em);
+    }
+    95% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
